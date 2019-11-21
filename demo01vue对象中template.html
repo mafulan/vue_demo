@@ -1,0 +1,44 @@
+<!--
+ * @Descripttion: 
+ * @version: v1.0.0
+ * @Author: 田江
+ * @Date: 2019-11-10 09:30:06
+ * @LastEditors: 田江
+ * @LastEditTime: 2019-11-10 09:36:45
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+
+let vm = new Vue({
+    el:"#app",
+    //数据
+    data:{
+        msg:"hello",
+        name:"张三疯",
+        sex:"男"
+    },
+    //模板
+    template:`
+        <div>
+            <p>{{msg}}</p>
+            <p>{{name}}</p>
+            <p>{{sex}}</p>
+        </div>
+    `
+});
+
+</script>

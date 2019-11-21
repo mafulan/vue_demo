@@ -1,0 +1,57 @@
+<!--
+ * @Descripttion: 
+ * @version: v1.0.0
+ * @Author: 田江
+ * @Date: 2019-11-10 09:30:43
+ * @LastEditors: 田江
+ * @LastEditTime: 2019-11-10 10:27:08
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+//封装组件和封装函数是同样的意思，只不过，以前的函数中没有html，而组件里有html
+//1、定义vue组件（定义函数）
+//1)、Vue.extend('组件名',组件的代码);
+//2）、简写
+// let 组件名= {
+    
+// }
+let myCom = {
+    data(){
+        return {
+            name:"张三疯"
+        }
+    },
+    template:``,
+    methods:{},
+    computed:{},
+}
+
+//2、注册vue组件（声明函数）
+//1)、全局注册:(在项目中的任何Vue对象中都可以使用该组件)
+Vue.component('标签名',组件名);
+//2)、局部注册:(注册哪个Vue对象里，哪个Vue对象就能使用)
+let vm = new Vue({
+    el:"#app",
+    components:{
+        标签名1:组件名1，
+        标签名2:组件名2
+    }
+});
+
+//3、使用组件（调用函数）
+//使用组件跟使用标签是同样的道理。
+<标签名></标签名>
+
+</script>

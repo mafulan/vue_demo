@@ -1,0 +1,62 @@
+<!--
+ * @Descripttion: 
+ * @version: v1.0.0
+ * @Author: 田江
+ * @Date: 2019-11-10 09:30:43
+ * @LastEditors: 田江
+ * @LastEditTime: 2019-11-10 11:52:15
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+ </head>
+ <body>
+    <div id="app">
+        <person :name='name' 
+        ></person>
+    </div>
+ </body>
+ </html>
+ <script src="js/vue.js"></script>
+ <script>
+//1、props是外部传给组件的数据，data是组件内部的数据
+//解释：
+//如果说封装组件就是在封装的函数的话，
+//那么：props就是函数的形参，data相当于函数的局部变量。
+
+let person = {
+    props:{
+        'name':{
+           type:String,
+           required:true 
+        }
+    },
+    data(){
+        return {  
+            age:12         
+        }
+    },
+    template:`
+        <div>
+           <p>{{name}}</p> 
+           <p>{{age}}</p>          
+        </div>
+    `
+}
+
+//父组件
+ let vm = new Vue({
+     el:"#app",
+     data:{
+        name:"李思峰"
+     },
+     components:{
+        person:person
+     }
+ });
+
+ </script>

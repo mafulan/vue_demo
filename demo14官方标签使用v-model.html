@@ -1,0 +1,45 @@
+<!--
+ * @Descripttion: 
+ * @version: v1.0.0
+ * @Author: 田江
+ * @Date: 2019-11-10 09:30:43
+ * @LastEditors: 田江
+ * @LastEditTime: 2019-11-10 13:49:02
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+ </head>
+ <body>
+    <div id="app">
+
+        <input type="text" v-model="val" >
+        <!-- <input type="text" :value="val" @input="fn" > -->
+        <!-- <person v-on:myevent="eventFn" ></person> -->
+    </div>
+ </body>
+ </html>
+ <script src="js/vue.js"></script>
+ <script>
+
+//v-model：此指令绑定在表单元素，完成双向数据绑定。
+//        v-model是个语法糖，背后使用的是 value属性和input事件
+
+
+ let vm = new Vue({
+     el:"#app",
+     data:{ 
+        val:"hello"
+     },
+     methods:{
+        fn:function(){
+            this.val = event.target.value;
+        }
+     }
+ });
+
+ </script>

@@ -1,0 +1,65 @@
+<!--
+ * @Descripttion: 
+ * @version: v1.0.0
+ * @Author: 田江
+ * @Date: 2019-11-10 09:30:43
+ * @LastEditors: 田江
+ * @LastEditTime: 2019-11-10 14:13:42
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+ </head>
+ <body>
+    <div id="app">
+        <p>我是父组件</p>
+        <hr/>
+        <!-- <person :value="val" @input="fn2" ></person> -->
+        <person v-model="val" ></person>
+    </div>
+ </body>
+ </html>
+ <script src="js/vue.js"></script>
+ <script>
+
+//v-model：此指令绑定在表单元素，完成双向数据绑定。
+//        v-model是个语法糖，背后使用的是 value属性和input事件
+
+let person = {
+    props:['value'],
+    data(){
+        return { }
+    },
+    methods:{
+        myfunc(){
+            this.$emit("input",event.target.value);
+        }
+    },
+    template:`
+        <div>
+           <h1>我是子组件</h1>
+           <input type="text" :value="value" @input="myfunc" />
+        </div>
+    `
+}
+
+ let vm = new Vue({
+     el:"#app",
+     data:{ 
+        val:"hello"
+     },
+     methods:{
+        // fn2(str){
+        //     this.val = str;
+        // }
+     },
+     components:{
+         person:person
+     }
+ });
+
+ </script>

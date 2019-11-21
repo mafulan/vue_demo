@@ -1,0 +1,62 @@
+<!--
+ * @Descripttion: 
+ * @version: v1.0.0
+ * @Author: 田江
+ * @Date: 2019-11-10 09:30:43
+ * @LastEditors: 田江
+ * @LastEditTime: 2019-11-10 16:41:13
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+ </head>
+ <body>
+    <div id="app">
+        <div v-redbox>
+            {{msg}}
+        </div>
+        <input type="button" v-on:click="change()">
+    </div>
+ </body>
+ </html>
+ <script src="js/vue.js"></script>
+ <script>
+
+
+
+//定义一个指令：v-redbox
+Vue.directive("redbox",{
+    // 指令第一次绑定到元素时调用
+    bind:function(el){
+        console.log("bind");
+        el.style.width="100px";
+        el.style.height="100px";
+        el.style.backgroundColor="red";
+    },
+    inserted:function(el){
+        console.log("inserted");
+        el.style.border="5px solid black";
+    },
+    update:function(){
+        console.log("update");
+    }
+});
+
+let vm = new Vue({
+    el:"#app",
+    data:{
+      msg:"hi" ,
+      i:0 
+    },
+    methods:{
+         change(){
+             this.msg="hello"+ this.i++;
+        }
+    }
+});
+
+ </script>

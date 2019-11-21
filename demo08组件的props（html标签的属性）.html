@@ -1,0 +1,73 @@
+<!--
+ * @Descripttion: 
+ * @version: v1.0.0
+ * @Author: 田江
+ * @Date: 2019-11-10 09:30:43
+ * @LastEditors: 田江
+ * @LastEditTime: 2019-11-10 10:42:41
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+ </head>
+ <body>
+    <div id="app">
+        <goodslist type="文具"></goodslist>
+        <hr/>
+        <goodslist type="电子产品"></goodslist>
+    </div>
+ </body>
+ </html>
+ <script src="js/vue.js"></script>
+ <script>
+
+//prop:property
+//定义组件(商品列表)
+let goodslist = {
+    props:['type'], //声明该组件的自定义属性（相当于函数的形参）
+    data(){
+        return {
+            goodslist:{
+                "文具":[
+                    {name:"铅笔", price:1.5},
+                    {name:"钢笔", price:35},
+                    {name:"毛笔", price:35}
+                ],
+                "电子产品":[
+                    {name:"手机", price:2500},
+                    {name:"平板", price:2000},
+                    {name:"电脑", price:4500}
+                ]
+            }
+        }
+    },
+    computed:{
+        currGoodsList(){
+            return this.goodslist[this.type];
+        }
+    },
+    template:`
+        <div>
+           <h1>所有{{type}}：</h1>
+            <ul>
+                <li v-for="goods in currGoodsList" >
+                    <p>商品名称：{{goods.name}}</p>
+                    <p>商品价格：{{goods.price}}</p>
+                </li>
+            </ul>
+        </div>
+    `
+}
+
+ let vm = new Vue({
+     el:"#app",
+     components:{
+        goodslist:goodslist
+     }
+ });
+
+ </script>

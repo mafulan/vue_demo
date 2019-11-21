@@ -1,0 +1,71 @@
+<!--
+ * @Descripttion: 
+ * @version: v1.0.0
+ * @Author: 田江
+ * @Date: 2019-11-10 09:30:43
+ * @LastEditors: 田江
+ * @LastEditTime: 2019-11-10 10:25:58
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+ </head>
+ <body>
+         <div id="app">
+             <p>{{msg}}</p>
+             <my-person></my-person>
+         </div>
+         <hr/>
+     <div id="app02">
+             <p>{{msg}}</p>
+             <my-person></my-person>
+         </div>
+ </body>
+ </html>
+ <script src="js/vue.js"></script>
+ <script>
+//局部注册组件是用的比较多的。
+     
+ /*-------Vue组件--------*/
+ //1、定义vue组件
+ let myCom = {
+     data(){
+         return {
+             name:"张三疯"
+         }
+     },
+     template:`
+         <div>
+             <h1>组件</h1>
+             <p>{{name}}</p>
+         </div>
+     `
+ }
+ 
+ //3、使用组件
+ //使用组件跟使用标签是同样的道理。
+ // <标签名></标签名>
+ 
+ /*-----------Vue对象-------------*/
+ let vm = new Vue({
+     el:"#app",
+     data:{
+         msg:"我是vue对象的内容"
+     },
+      //2、注册vue组件(局部注册)
+     components:{
+         "my-person":myCom
+     }
+ });
+ /*-----------Vue对象-------------*/
+ let vm02 = new Vue({
+     el:"#app02",
+     data:{
+         msg:"我是vue对象的内容02"
+     }
+ });
+ </script>
